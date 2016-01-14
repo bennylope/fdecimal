@@ -7,21 +7,23 @@ class FDecimal(Decimal):
     """
     Replacement for Decimal that allows for arithmetic with float values
     """
-    # Copied from Python source code
-    # We're immutable, so use __new__ not __init__
+
+    # The __new__ method was copied from CPython source code.
+    # Copyright (c) 2004 Python Software Foundation.
+    # All rights reserved.
     def __new__(cls, value="0", context=None):
         """Create a decimal point instance.
 
-        >>> Decimal('3.14')              # string input
-        Decimal('3.14')
-        >>> Decimal((0, (3, 1, 4), -2))  # tuple (sign, digit_tuple, exponent)
-        Decimal('3.14')
-        >>> Decimal(314)                 # int or long
-        Decimal('314')
-        >>> Decimal(Decimal(314))        # another decimal instance
-        Decimal('314')
-        >>> Decimal('  3.14  \\n')        # leading and trailing whitespace okay
-        Decimal('3.14')
+        >>> FDecimal('3.14')              # string input
+        FDecimal('3.14')
+        >>> FDecimal((0, (3, 1, 4), -2))  # tuple (sign, digit_tuple, exponent)
+        FDecimal('3.14')
+        >>> FDecimal(314)                 # int or long
+        FDecimal('314')
+        >>> FDecimal(Decimal(314))        # another decimal instance
+        FDecimal('314')
+        >>> FDecimal('  3.14  \\n')        # leading and trailing whitespace okay
+        FDecimal('3.14')
         """
 
         # Note that the coefficient, self._int, is actually stored as

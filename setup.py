@@ -19,7 +19,7 @@ with open('HISTORY.rst') as history_file:
 
 setup(
     name='fdecimal',
-    version='0.1.0',
+    version=fdecimal.__version__,
     description="Decimal compatability with float",
     long_description=readme + '\n\n' + history,
     author="Ben Lopatin",
