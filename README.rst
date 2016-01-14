@@ -42,5 +42,8 @@ TODO
 
 * Missing operations, including mod, floor div
 * Python 3 support
-* Return FDecimal objects rather than Decimal objects
 * Allow cdecimal swap-in
+
+Done:
+
+* Return FDecimal objects rather than Decimal objects

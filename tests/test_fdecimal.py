@@ -12,7 +12,13 @@ import unittest
 import fdecimal
 
 
-class TestFloats(unittest.TestCase):
+class AdditionTests(unittest.TestCase):
+
+    def test_type(self):
+        self.assertIsInstance(
+            7.2 + fdecimal.FDecimal(1.0),
+            fdecimal.FDecimal,
+        )
 
     def test_add(self):
         self.assertAlmostEqual(
@@ -24,6 +30,15 @@ class TestFloats(unittest.TestCase):
         self.assertAlmostEqual(
             fdecimal.FDecimal(10.0),
             5.0 + fdecimal.FDecimal(5.0),
+        )
+
+
+class SubtractionTests(unittest.TestCase):
+
+    def test_type(self):
+        self.assertIsInstance(
+            7.2 - fdecimal.FDecimal(1.0),
+            fdecimal.FDecimal,
         )
 
     def test_sub(self):
@@ -38,6 +53,15 @@ class TestFloats(unittest.TestCase):
             5.0 - fdecimal.FDecimal(5.0),
         )
 
+
+class MultiplicationTests(unittest.TestCase):
+
+    def test_type(self):
+        self.assertIsInstance(
+            7.2 * fdecimal.FDecimal(1.0),
+            fdecimal.FDecimal,
+        )
+
     def test_mul(self):
         self.assertAlmostEqual(
             fdecimal.FDecimal(10.0),
@@ -48,6 +72,15 @@ class TestFloats(unittest.TestCase):
         self.assertAlmostEqual(
             fdecimal.FDecimal(72.0),
             7.2 * fdecimal.FDecimal(10),
+        )
+
+
+class DivisionTests(unittest.TestCase):
+
+    def test_type(self):
+        self.assertIsInstance(
+            7.2 / fdecimal.FDecimal(1.0),
+            fdecimal.FDecimal,
         )
 
     def test_div(self):
