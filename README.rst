@@ -18,9 +18,29 @@ Features
 
 Implicit float-to-Decimal coercion for arithmetic operations.
 
+Instead of this::
+
+    >>> from decimal import Decimal
+    >>> Decimal(12.0) * 0.5
+    TypeError: unsupported operand type(s) for *: 'Decimal' and 'float'
+
+Use FDecimal::
+
+    >>> from fdecimal import FDecimal
+    >>> FDecimal(12.0) * 0.5
+    Decimal('6.0')
+
+As you can see it only solves part of the problem - the result still can't be
+added with a float value without explicit type coercion, but it solves some
+problems where (1) its not clear what type the other value will be, (2) you
+don't want to add code explicitly handling that coercion, and (3) an
+arithmetic surprises due to working with different numeric types are
+acceptable.
+
 TODO
 ----
 
 * Missing operations, including mod, floor div
 * Python 3 support
+* Return FDecimal objects rather than Decimal objects
 * Allow cdecimal swap-in
